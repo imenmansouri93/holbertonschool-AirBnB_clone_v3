@@ -11,7 +11,7 @@ from models.place import Place
 from models.state import State
 
 
-@app_views.route('/status', strict_slashes=False)
+@app_views.route('/status', methods=['GET'],strict_slashes=False)
 def status():
     """status of API"""
     return jsonify({"status": "OK"})
