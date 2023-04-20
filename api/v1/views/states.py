@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Flask apllication for state class/entity"""
+"""Flask apllication 
+for state class/entity
+"""
+
+
 from api.v1.views import app_views
 from models import storage
 from models.state import State
