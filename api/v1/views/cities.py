@@ -4,6 +4,7 @@
 Flask applicationfor city class/entity
 """
 
+
 from flask import jsonify, abort, request
 from models import storage
 from api.v1.views import app_views
