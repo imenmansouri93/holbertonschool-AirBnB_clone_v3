@@ -14,10 +14,11 @@ app = Flask(__name__)
 def teardown(exception):
     storage.close()
 
+
 @app.errorhandler(404)
 def errorhandler(error):
     """http request"""
-    return jsonify({"error": "Note found"}), 404
+    return jsonify({"error": "Not found"}), 404
 
 if __name__ == "__main__":
     Apihost = getenv('HBNB_API_HOST', default='0.0.0.0')
