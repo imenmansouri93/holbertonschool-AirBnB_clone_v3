@@ -7,7 +7,7 @@ for state class/entity
 from api.v1.views import app_views
 from models import storage
 from models.state import State
-from flask import jsonify, abort, requests
+from flask import jsonify, abort, request
 
 
 @app_views.route("/states", methods=["GET"], strict_slashes=False)
@@ -43,8 +43,8 @@ def deleteStateById(state_id):
 @app_views.route("/states", methods=["POST"], strict_slashes=False)
 def postState():
     """Create an object"""
-    state_data = requests.get_json()
-    if not state_data :
+    state_data = request.get_json()
+    if not state_data:
         abort(400, "Not a JSON")
     new_state = State(**state_data)
     new_state.save()
@@ -54,7 +54,7 @@ def postState():
 @app_views.route("/states/<state_id>", methods=["PUT"], strict_slashes=False)
 def ubdateState(state_id):
     """ubdate an objects"""
-    state_data = requests.get_json()
+    state_data = request.get_json()
     state = storage.get(State, state_id)
     if not state:
         abort(404)
