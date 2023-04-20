@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """"""
+
+
 from flask import jsonify
 from models import storage
 from api.v1.views import app_views
@@ -15,3 +17,4 @@ from models.state import State
 def status():
     """status of API"""
     return jsonify({"status": "OK"})
+
