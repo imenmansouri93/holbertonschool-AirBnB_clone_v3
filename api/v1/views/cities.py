@@ -3,8 +3,6 @@
 
 Flask applicationfor city class/entity
 """
-
-
 from flask import jsonify, abort, request
 from models import storage
 from api.v1.views import app_views
@@ -70,11 +68,12 @@ def postCity(state_id):
 def updateCity(city_id):
     """update an object """
     city = storage.get(City, city_id)
-    city_data = request.get(City, city_id)
+    city_data = request.get_json()
+    
 
     if not city:
         abort(404)
-    if city is not city_data:
+    if not city_data:
         abort(400, "Not a JSON")
 
     for key, value in city_data.items():
@@ -84,5 +83,3 @@ def updateCity(city_id):
         return jsonify(city.to_dict()), 200
 
         
-    
-    
