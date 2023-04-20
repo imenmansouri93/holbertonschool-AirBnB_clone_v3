@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Flask application 
-for city class/entity"""
+"""
 
+Flask applicationfor city class/entity
+"""
 
 from flask import jsonify, abort, request
 from models import storage
