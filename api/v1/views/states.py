@@ -2,8 +2,6 @@
 """Flask apllication 
 for state class/entity
 """
-
-
 from api.v1.views import app_views
 from models import storage
 from models.state import State
@@ -13,7 +11,7 @@ from flask import jsonify, abort, request
 @app_views.route("/states", methods=["GET"], strict_slashes=False)
 def retrievesAllStates():
     """returns the list of all Statee objects"""
-    states = storage.all(states).values()
+    states = storage.all(State).values()
     states_list = []
     for state in states:
         states_list.append(state.to_dict())
@@ -64,5 +62,5 @@ def ubdateState(state_id):
     for key, value in state_data.items():
         if key not in ["id", "created_at", "updated_at"]:
             setattr(state, key, value)
-    storage.save()
+    state.save()
     return jsonify(state.to_dict()), 200
