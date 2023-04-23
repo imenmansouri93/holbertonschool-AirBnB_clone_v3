@@ -1,13 +1,20 @@
 #!/usr/bin/python3
-""""""
-
-
-from flask import Flask, Blueprint, jsonify
+"""Script that starts a Flask app"""
+from flask import Flask, jsonify
+from fask_cors import CORS
 from models import storage
 from api.v1.views import app_views
-
 from os import getenv
+
+
+"""Start Flask"""
 app = Flask(__name__)
+
+"""Register the blueprint app_views"""
+app.register_blueprint(app_views)
+
+"""Create the cors instance to allow IPs"""
+CORS(app, resource={r"/*": {"origin": "0.0.0.0"}})
 
 
 @app.teardown_appcontext
