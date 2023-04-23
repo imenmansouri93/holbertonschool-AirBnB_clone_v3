@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-views
+Script tha creates the Blueprint Flassk class and import modules
 """
 
 from flask import Blueprint

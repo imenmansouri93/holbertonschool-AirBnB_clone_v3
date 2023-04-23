@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""Flask applicattion that retrieves information"""
 
 
 from flask import jsonify
