@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-Script tha creates the Blueprint Flassk class and import modules
-"""
-
+"""Script tha creates the Blueprint Flassk class and import modules"""
 from flask import Blueprint
 
 
